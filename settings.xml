@@ -6,7 +6,7 @@
       <!-- <username>${env.NEXUS_CREDS_USR}</username>
       <password>${env.NEXUS_CREDS_PSW}</password> -->
       <username>${server.username}</username>
-      <password>AP7FNCNSreDHb2NFkBh5yyzpRjj</password>
+      <password>${server.password}</password>
     </server>
   </servers>
 
