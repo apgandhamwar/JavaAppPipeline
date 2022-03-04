@@ -85,11 +85,11 @@
    <distributionManagement>
       <repository>
          <id>nexus-premise</id>
-         <url>http://ec2-15-206-189-141.ap-south-1.compute.amazonaws.com:8081/repository/knoteapp-RELEASE/</url>
+         <url>https://javaapprepo.jfrog.io/artifactory/JavaAppRELEASE/</url>
       </repository>
 	  <snapshotRepository>
             <id>nexus-premise</id>
-            <url>http://ec2-15-206-189-141.ap-south-1.compute.amazonaws.com:8081/repository/knoteapp-SNAPSHOT/</url>
+            <url>https://javaapprepo.jfrog.io/artifactory/JavaAppSNAPSHOT/</url>
         </snapshotRepository>
    </distributionManagement>
 
