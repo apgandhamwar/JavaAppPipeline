@@ -69,7 +69,7 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
           withMaven(globalMavenSettingsFilePath: 'settings.xml', jdk: "java-8", maven: "maven-3") {
-            sh "git checkout -f master"
+            sh "git ls-remote -h 'https://github.com/apgandhamwar/JavaAppPipeline.git' HEAD"
             sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:clean release:prepare release:perform"
           }
         }
