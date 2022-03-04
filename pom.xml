@@ -83,26 +83,14 @@
       </repository>
    </repositories> -->
    <distributionManagement>
-      <!-- <repository>
+      <repository>
          <id>nexus-premise</id>
          <url>https://javaapprepo.jfrog.io/artifactory/JavaAppRELEASE/</url>
       </repository>
 	  <snapshotRepository>
             <id>nexus-premise</id>
             <url>https://javaapprepo.jfrog.io/artifactory/JavaAppSNAPSHOT/</url>
-        </snapshotRepository> -->
-
-		<repository>
-        <id>central</id>
-        <name>a0yc2b7dfc3fx-artifactory-primary-0-releases</name>
-        <url>https://javaapprepo.jfrog.io/artifactory/JavaAppSNAPSHOT</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>a0yc2b7dfc3fx-artifactory-primary-0-snapshots</name>
-        <url>https://javaapprepo.jfrog.io/artifactory/JavaAppSNAPSHOT</url>
-    </snapshotRepository>
-	
+        </snapshotRepository>
    </distributionManagement>
 
 
