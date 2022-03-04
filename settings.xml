@@ -1,5 +1,5 @@
 <settings>
-  <localRepository>.m2</localRepository>
+  <localRepository>C:\ProgramData\Jenkins\.jenkins\workspace\JavaAppPipeline\.m2</localRepository>
   <servers>
     <server>
       <id>nexus-premise</id>
