@@ -39,7 +39,7 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
           withMaven(globalMavenSettingsFilePath: 'C:/ProgramData/Jenkins/.jenkins/workspace/JavaAppPipeline/settings.xml', jdk: "java-8", maven: "maven-3") {
-            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean verify"
+            sh "mvn -Djava.net.preferIPv4Stack=true -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean verify"
           }
         }
       }
@@ -54,7 +54,7 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
           withMaven(globalMavenSettingsFilePath: 'C:/ProgramData/Jenkins/.jenkins/workspace/JavaAppPipeline/settings.xml', jdk: "java-8", maven: "maven-3") {
-            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean deploy -X"
+            sh "mvn -Djava.net.preferIPv4Stack=true -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean deploy -X"
           }
         }
       }
@@ -69,7 +69,7 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
           withMaven(globalMavenSettingsFilePath: 'settings.xml', jdk: "java-8", maven: "maven-3") {
-            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:clean release:prepare release:perform"
+            sh "mvn -Djava.net.preferIPv4Stack=true -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:clean release:prepare release:perform"
           }
         }
       }
