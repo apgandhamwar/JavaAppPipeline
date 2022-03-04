@@ -10,14 +10,14 @@
 	</parent>
 	<groupId>io.learnk8s</groupId>
 	<artifactId>knote-java</artifactId>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>knote</name>
 	<description>Knote</description>
 
 	<scm>
-		<connection>scm:git:https://github.com/arnabnandy1706/javaapp-cicd.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/arnabnandy1706/javaapp-cicd.git</developerConnection>
-		<url>https://github.com/arnabnandy1706/javaapp-cicd</url>
+		<connection>scm:git:https://github.com/apgandhamwar/JavaAppPipeline.git</connection>
+		<developerConnection>scm:git:ssh://github.com/apgandhamwar/JavaAppPipeline.git</developerConnection>
+		<url>https://github.com/apgandhamwar/JavaAppPipeline.git</url>
 		<tag>HEAD</tag>
   	</scm>
 
