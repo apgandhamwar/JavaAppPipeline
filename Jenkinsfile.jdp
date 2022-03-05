@@ -31,6 +31,10 @@ pipeline {
     JAVA_HOME      = "/usr/java/jdk1.8.0_191-amd64"
     MAVEN_HOME     = "/opt/maven"
     NEXUS_CREDS = credentials('nexus-repo')
+    sh '''
+    git config --global user.email "apgandhamwar@gmail.com"
+    git config --global user.name "apgandhamwar"
+    '''
 
   }
 
