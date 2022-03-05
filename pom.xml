@@ -9,14 +9,14 @@
 	</parent>
 	<groupId>io.learnk8s</groupId>
 	<artifactId>knote-java</artifactId>
-	<version>6.0.0</version>
+	<version>6.0.0-SNAPSHOT</version>
 	<name>knote</name>
 	<description>Knote</description>
  
 	<scm>
 		<connection>scm:git:ssh://git@github.com:apgandhamwar/JavaAppPipeline.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:apgandhamwar/JavaAppPipeline.git</developerConnection>
-		<url>git@github.com:apgandhamwar/JavaAppPipeline.git</url>
+		<url>https://github.com/apgandhamwar/JavaAppPipeline.git</url>
 		<tag>HEAD</tag>
   	</scm>
 
