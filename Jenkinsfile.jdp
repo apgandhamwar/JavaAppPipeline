@@ -78,5 +78,26 @@ pipeline {
       }
     }
   }
+
+  stage('Update GIT') {
+    when {
+          expression { params.BuildType == 'RELEASE' }
+      }
+  steps {
+    script {
+      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        withCredentials([usernamePassword(credentialsId: 'GitHub', passwordVariable: 'USERNAME', usernameVariable: 'PASSWORD')]) {
+            def encodedPassword = URLEncoder.encode("$PASSWORD",'UTF-8')
+            sh "git config user.email apgandhamwar@gmail.com"
+            sh "git config user.name apgandhamwar"
+            sh "git add ."
+            sh "git commit -m 'Triggered Build: ${env.BUILD_NUMBER}'"
+            sh "git push https://${USERNAME}:${encodedPassword}@github.com/${USERNAME}/JavaAppPipeline.git"
+        }
+      }
+    }
+  }
+}
+
 }
 }
