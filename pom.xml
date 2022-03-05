@@ -16,7 +16,7 @@
 	<scm>
 		<connection>scm:git:ssh://git@github.com:apgandhamwar/JavaAppPipeline.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com:apgandhamwar/JavaAppPipeline.git</developerConnection>
-		<url>ssh://git@github.com:apgandhamwar/JavaAppPipeline.git</url>
+		<url>git@github.com:apgandhamwar/JavaAppPipeline.git</url>
 		<tag>HEAD</tag>
   	</scm>
 
