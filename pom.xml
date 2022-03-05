@@ -14,14 +14,15 @@
 	<description>Knote</description>
  
 	<scm>
-		<connection>scm:git:git@github.com:apgandhamwar/JavaAppPipeline.git</connection>
-		<developerConnection>scm:git:git@github.com:apgandhamwar/JavaAppPipeline.git</developerConnection>
+		<connection>scm:git:git//ssh@github.com:apgandhamwar/JavaAppPipeline.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:apgandhamwar/JavaAppPipeline.git</developerConnection>
 		<url>https://github.com/apgandhamwar/JavaAppPipeline.git</url>
 		<tag>HEAD</tag>
   	</scm>
 
 	<properties>
 		<java.version>8</java.version>
+		<project.scm.id>bitbucket.org</project.scm.id>
 	</properties>
 
 	<!-- <plugin>
@@ -101,11 +102,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
-				<configuration>
-				<localCheckout>false</localCheckout>
-				<pushChanges>false</pushChanges>
-				<preparationGoals>validate</preparationGoals>
-				</configuration>
+				<version>2.5.3</version>
 			</plugin>
 		</plugins>
 	</build>
