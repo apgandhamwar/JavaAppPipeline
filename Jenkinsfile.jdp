@@ -91,7 +91,7 @@ pipeline {
             sh "git config user.email apgandhamwar@gmail.com"
             sh "git config user.name apgandhamwar"
             sh "git add ."
-            sh "git commit -m 'Triggered Build: ${env.BUILD_NUMBER}'"
+            sh "git commit -m 'Triggered Build: ${ARTIFACT_VERSION}'"
             sh "git push https://${USERNAME}:${encodedPassword}@github.com/${USERNAME}/JavaAppPipeline.git"
         }
       }
