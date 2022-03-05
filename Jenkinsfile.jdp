@@ -73,10 +73,10 @@ pipeline {
           withMaven(globalMavenSettingsFilePath: 'settings.xml', jdk: "java-8", maven: "maven-3") {
             // sh "git checkout -f master"
             // sh "git pull"
-               sh '''
-                git config --global user.email "apgandhamwar@gmail.com"
-                git config --global user.name "apgandhamwar"
-                '''
+               // sh '''
+               // git config --global user.email "apgandhamwar@gmail.com"
+                // git config --global user.name "apgandhamwar"
+                // '''
             sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:clean release:prepare release:perform"
           }
         }
