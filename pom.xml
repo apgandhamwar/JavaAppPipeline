@@ -14,7 +14,7 @@
 	<description>Knote</description>
  
 	<scm>
-		<connection>scm:git:git//ssh@github.com/apgandhamwar/JavaAppPipeline.git</connection>
+		<connection>scm:git:https://github.com/apgandhamwar/JavaAppPipeline.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/apgandhamwar/JavaAppPipeline.git</developerConnection>
 		<url>https://github.com/apgandhamwar/JavaAppPipeline.git</url>
 		<tag>HEAD</tag>
