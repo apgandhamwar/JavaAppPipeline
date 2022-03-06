@@ -74,6 +74,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			 <groupId>org.sonarsource.scanner.maven</groupId>
+             <artifactId>sonar-maven-plugin</artifactId>
+             <version>3.6.0.1398</version>
+		</dependency>
 		
 	</dependencies>
 	<!-- <repositories>
@@ -99,14 +104,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<!-- <groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.7.0.1746</version> -->
-				<groupId>org.codehaus.mojo</groupId>
-    			<artifactId>sonar-maven-plugin</artifactId>
-    			<version>3.0.1</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
