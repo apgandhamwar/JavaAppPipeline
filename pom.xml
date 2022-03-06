@@ -106,7 +106,7 @@
 				<version>3.7.0.1746</version> -->
 				<groupId>org.codehaus.mojo</groupId>
     			<artifactId>sonar-maven-plugin</artifactId>
-    			<version>3.0.2</version>
+    			<version>3.0.1</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
@@ -125,7 +125,7 @@
     <pluginRepository>
         <id>central</id>
         <name>Central Repository</name>
-        <url>https://repo.maven.apache.org/maven2</url>
+        <url>https://repo1.maven.apache.org/maven2</url>
         <layout>default</layout>
         <snapshots>
             <enabled>false</enabled>
