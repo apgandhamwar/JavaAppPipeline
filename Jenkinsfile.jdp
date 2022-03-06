@@ -63,13 +63,12 @@ pipeline {
     }
   }
   
-  stage ("Post-Build") {
-    when {
-          expression { params.BuildType == 'SNAPSHOT' }
-      }
-     sh -c "export WAIT_FOR_ANALYSIS=true; C:/jfrog-integrations-master/sonarqube/artifactory/artifactory-sonar.sh [true|false]"
-     
+  stage ('PostBuild') {
+    steps {
+       sh "export WAIT_FOR_ANALYSIS=true; C:/jfrog-integrations-master/sonarqube/artifactory/artifactory-sonar.sh true"
+    }    
   }
+  
   stage('release') {
       when {
           expression { params.BuildType == 'RELEASE' }
