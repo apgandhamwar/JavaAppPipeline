@@ -69,6 +69,17 @@ pipeline {
       }
       steps {
         script {
+         
+          withMaven(globalMavenSettingsFilePath: 'C:/ProgramData/Jenkins/.jenkins/workspace/JavaAppPipeline/settings.xml', jdk: "java-8", maven: "maven-3") {
+            // sh "git checkout -f master"
+            // sh "git pull"
+               // sh '''
+               // git config --global user.email "apgandhamwar@gmail.com"
+                // git config --global user.name "apgandhamwar"
+                // '''
+            sh "mvn -Dusername=apgandhamwar@gmail.com -Dpassword=Jenkins@1234 release:prepare"
+          }
+
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
           withMaven(globalMavenSettingsFilePath: 'C:/ProgramData/Jenkins/.jenkins/workspace/JavaAppPipeline/settings.xml', jdk: "java-8", maven: "maven-3") {
             // sh "git checkout -f master"
@@ -77,7 +88,7 @@ pipeline {
                // git config --global user.email "apgandhamwar@gmail.com"
                 // git config --global user.name "apgandhamwar"
                 // '''
-            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} -Dusername=apgandhamwar@gmail.com -Dpassword=Jenkins@1234 release:clean release:prepare release:perform"
+            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:perform"
           }
         }
       }
