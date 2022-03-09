@@ -15,7 +15,7 @@
  
 	<scm>
 		<connection>scm:git:https://github.com/apgandhamwar/JavaAppPipeline.git</connection>
-		<developerConnection>scm:git:https://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@github.com/apgandhamwar/JavaAppPipeline.git</developerConnection>
+		<developerConnection>scm:git:https://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@github.com/apgandhamwar/JavaAppPipeline.git</developerConnection>
 		<url>https://@github.com/apgandhamwar/JavaAppPipeline.git</url>
 		<tag>HEAD</tag>
   	</scm>
