@@ -97,7 +97,7 @@ pipeline {
 
   stage ('Sonar') {
     steps {
-       sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JavaAppPipeline -Dsonar.host.url=http://localhost:9002 -Dsonar.login=49fe3a87eb933607cc66eb19ff7de5c53d1e8d15"
+       sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JavaPipelineWork -Dsonar.host.url=http://146.148.6.206:9000 -Dsonar.login=b637094b28a97534946cc4e35c5ca5c37dcad57d"
     }    
   }
   stage ('PostBuild') {
