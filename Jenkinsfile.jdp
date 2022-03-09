@@ -39,7 +39,6 @@ pipeline {
     stage('clean & verify') {
       steps {
         script {
-          echo "Current workspace is $WORKSPACE"
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
           withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
             sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean verify"
@@ -56,7 +55,7 @@ pipeline {
       steps {
         script {
           withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-          withMaven(globalMavenSettingsFilePath: 'C:/ProgramData/Jenkins/.jenkins/workspace/JavaAppPipeline/settings.xml', jdk: "java-8", maven: "maven-3") {
+          withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
             sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean deploy -X"
           }
         }
