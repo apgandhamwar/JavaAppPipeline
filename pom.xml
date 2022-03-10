@@ -15,7 +15,7 @@
  
 	<scm>
 		<connection>scm:git:https://github.com/apgandhamwar/JavaAppPipeline.git</connection>
-		<developerConnection>scm:git:https://token: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@github.com/apgandhamwar/JavaAppPipeline.git</developerConnection>
+		<developerConnection>scm:git:https://apgandhamwar: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@github.com/apgandhamwar/JavaAppPipeline.git</developerConnection>
 		<url>https://@github.com/apgandhamwar/JavaAppPipeline.git</url>
 		<tag>knote-java-6.0.0</tag>
   	</scm>
