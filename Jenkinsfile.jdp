@@ -35,7 +35,7 @@ pipeline {
 
   }
 
-  // stages {
+  stages {
   //   stage('clean & verify') {
   //     steps {
   //       script {
@@ -91,7 +91,7 @@ pipeline {
   //      sh "export WAIT_FOR_ANALYSIS=true; C:/jfrog-integrations-master/sonarqube/artifactory/artifactory-sonar.sh true"
   //   }    
   // }
-
+  
   stage ('Deploy Artifact') {
     steps {
        sh "ansible-playbook main.yml"
