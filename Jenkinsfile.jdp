@@ -85,6 +85,12 @@ pipeline {
        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JavaPipelineWork -Dsonar.host.url=http://146.148.6.206:9000 -Dsonar.login=b637094b28a97534946cc4e35c5ca5c37dcad57d"
     }    
   }
+  
+  stage ('Deploy Artifact') {
+    steps {
+       sh "ansible-playbook main.yml -i inventories/dev/hosts --user jenkins --key-file ~/.ssh/id_rsa -e '@configs/dev.yml'"
+    }    
+  }
   stage ('PostBuild') {
     steps {
        sh "export WAIT_FOR_ANALYSIS=true; C:/jfrog-integrations-master/sonarqube/artifactory/artifactory-sonar.sh true"
