@@ -1,4 +1,4 @@
-- hosts: 34.176.13.109
+- hosts: localhost
   become: true
   become_user: root
   gather_facts: false
