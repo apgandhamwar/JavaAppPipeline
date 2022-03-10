@@ -35,67 +35,69 @@ pipeline {
 
   }
 
-  stages {
-    stage('clean & verify') {
-      steps {
-        script {
-          withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-          withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
-            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean verify"
-          }
-        }
-      }
-    }
-  }
+  // stages {
+  //   stage('clean & verify') {
+  //     steps {
+  //       script {
+  //         withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+  //         withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
+  //           sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean verify"
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  stage('deploy') {
-      when {
-          expression { params.BuildType == 'SNAPSHOT' }
-      }
-      steps {
-        script {
-          withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-          withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
-            sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean deploy -X"
-          }
-        }
-      }
-    }
-  }
+  // stage('deploy') {
+  //     when {
+  //         expression { params.BuildType == 'SNAPSHOT' }
+  //     }
+  //     steps {
+  //       script {
+  //         withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+  //         withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
+  //           sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} clean deploy -X"
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   
-  stage('release') {
-      when {
-          expression { params.BuildType == 'RELEASE' }
-      }
-      steps {
-        script {
+  // stage('release') {
+  //     when {
+  //         expression { params.BuildType == 'RELEASE' }
+  //     }
+  //     steps {
+  //       script {
          
-          withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-          withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
+  //         withCredentials([usernamePassword(credentialsId: 'nexus-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+  //         withMaven(globalMavenSettingsFilePath: '/var/lib/jenkins/workspace/JavaPipelineWork/settings.xml', jdk: "java-8", maven: "maven-3") {
             
-          sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:clean release:prepare release:perform"
-          }
-        }
-      }
-    }
-  }
+  //         sh "mvn -Drevision=${ARTIFACT_VERSION} -Dserver.username=${USERNAME} -Dserver.password=${PASSWORD} release:clean release:prepare release:perform"
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  stage ('Sonar') {
-    steps {
-       sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JavaPipelineWork -Dsonar.host.url=http://146.148.6.206:9000 -Dsonar.login=b637094b28a97534946cc4e35c5ca5c37dcad57d"
-    }    
-  }
+  // stage ('Sonar') {
+  //   steps {
+  //      sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JavaPipelineWork -Dsonar.host.url=http://146.148.6.206:9000 -Dsonar.login=b637094b28a97534946cc4e35c5ca5c37dcad57d"
+  //   }    
+  // }
   
+  // stage ('PostBuild') {
+  //   steps {
+  //      sh "export WAIT_FOR_ANALYSIS=true; C:/jfrog-integrations-master/sonarqube/artifactory/artifactory-sonar.sh true"
+  //   }    
+  // }
+
   stage ('Deploy Artifact') {
     steps {
        sh "ansible-playbook main.yml"
     }    
   }
-  stage ('PostBuild') {
-    steps {
-       sh "export WAIT_FOR_ANALYSIS=true; C:/jfrog-integrations-master/sonarqube/artifactory/artifactory-sonar.sh true"
-    }    
-  }
+  
 
 //   stage('Update GIT') {
 //     when {
