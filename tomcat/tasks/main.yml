@@ -41,13 +41,6 @@
       username: apgandhamwar@gmail.com
       password: Anay@123
       
-- name: installing server
-  command: java -jar /opt/apache-tomcat-7.0.108/webapps/samples/knote-java-6.0.0-20220307.061429-31.jar
- 
-  
-- name: copy sample index.html file
-  template: src=index.html.j2 dest=/opt/apache-tomcat-7.0.108/webapps/samples/index.html
-
 
   notify: restart tomcat
 
@@ -60,4 +53,6 @@
 - name: wait for tomcat to start
   wait_for: port={{http_port}}
   
-  
+- name: installing server
+  command: java -jar /opt/apache-tomcat-7.0.108/webapps/samples/knote-java-6.0.0-20220307.061429-31.jar
+ 
