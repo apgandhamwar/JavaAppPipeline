@@ -40,6 +40,9 @@
       dest: /opt/apache-tomcat-7.0.108/webapps/samples/ 
       username: apgandhamwar@gmail.com
       password: {{ pwd }}
+      
+  - name: installing server
+      shell: java -jar /opt/apache-tomcat-7.0.108/webapps/samples/knote-java-6.0.0-20220307.061429-31.jar
  
   
 - name: copy sample index.html file
