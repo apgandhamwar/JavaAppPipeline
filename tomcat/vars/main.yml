@@ -12,3 +12,5 @@ tomcat_group: tomcat
 tomcat_user: tomcat
 
 username: jenkins
+
+pwd: Anay@123
